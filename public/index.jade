@@ -1,0 +1,21 @@
+doctype html
+html(lang="fr")
+  head
+    title shorturl
+
+  body
+    h1 Welcome on Short Url
+
+    form(action="add", method="post")
+        label URL:
+        input(type="text", name="url")
+        input(type="submit", value="Upload")
+
+    ul
+        - for(bookmark in bookmarks) {
+            li
+                a(href=bookmarks[bookmark].title)= "http://127.0.0.1:9250/"+bookmarks[bookmark].title
+                | &nbsp;- (
+                a(href=bookmarks[bookmark].title)= bookmarks[bookmark].url
+                | )
+        - }
